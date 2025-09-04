@@ -25,4 +25,5 @@ public class KafkaConsumer1 {
         logger.info("Consumed message {} from Topic2", message);
     }
 
+
 }

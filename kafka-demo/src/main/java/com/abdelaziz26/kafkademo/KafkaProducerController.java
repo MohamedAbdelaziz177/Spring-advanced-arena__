@@ -18,9 +18,10 @@ public class KafkaProducerController {
         return ResponseEntity.ok(message + " sent to topic: " + topic);
     }
 
-    @GetMapping("/test")
-    public String sayHello()
+    @PostMapping("/publish")
+    public ResponseEntity<?> publish(@RequestBody Product product)
     {
-        return "Hello";
+        kafkaProducer.publishJson(product);
+        return ResponseEntity.ok("Product sent to jsonTopic");
     }
 }

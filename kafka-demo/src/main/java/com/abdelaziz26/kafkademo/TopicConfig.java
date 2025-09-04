@@ -17,4 +17,9 @@ public class TopicConfig {
     public NewTopic Topic2() {
         return TopicBuilder.name("Topic2").partitions(1).replicas(1).build();
     }
+
+    @Bean
+    public NewTopic jsonTopic() {
+        return TopicBuilder.name("jsonTopic").partitions(1).replicas(1).build();
+    }
 }
