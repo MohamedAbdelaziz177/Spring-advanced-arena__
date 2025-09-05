@@ -9,6 +9,8 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class KafkaProducer {
@@ -28,6 +30,7 @@ public class KafkaProducer {
 
         Message<Product> message = MessageBuilder
                 .withPayload(product)
+                .setHeader(KafkaHeaders.KEY, UUID.randomUUID().toString())
                 .setHeader(KafkaHeaders.TOPIC, "jsonTopic")
                 .build();
 
